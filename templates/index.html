@@ -1,0 +1,178 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{% block title %} {% endblock %}</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="{% static 'assets/imgs/theme/texon_logo.png' %}"
+    />
+    <!-- Template CSS -->
+    <link
+      href="{% static 'assets/css/main.css' %}"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!--================== Font Awesome 6 ====================-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+    <!--======================================================-->
+
+    <style>
+      .required {
+        color: red !important;
+        font-weight: bold;
+      }
+
+      .resize {
+        width: 100% !important;
+      }
+    </style>
+
+    {% block css %} {% endblock %}
+  </head>
+
+  <body>
+    <div class="screen-overlay"></div>
+
+    <!-- ============================================== -->
+    <!--              Side Bar Start                    -->
+    <!-- ============================================== -->
+    <aside class="navbar-aside" id="offcanvas_aside">
+      <div class="aside-top">
+        <a href="{% url 'home' %}" class="brand-wrap">
+          <!-- <img src="{% static 'assets/imgs/theme/texon_logo.png' %}" class="logo" alt="Nest Dashboard" width="10" height="50" /> -->
+          <span
+            style="
+              color: #1789fb;
+              font-size: 18px;
+              font-weight: bold;
+              font-family: Arial, sans-serif;
+            "
+            >United Lube Oil LTD
+          </span>
+        </a>
+        <div>
+          <button class="btn btn-icon btn-aside-minimize">
+            <i class="text-muted material-icons md-menu_open"></i>
+          </button>
+        </div>
+      </div>
+      <nav>
+        <ul class="menu-aside">
+          <li class="{% if active == 'home' %}active{% endif %} menu-item">
+            <a class="menu-link" href="{% url 'home' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Dashboard</span>
+            </a>
+          </li>
+
+          <!--- News Events -->
+
+          <li
+            class="{% if active == 'news_events' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">News Events</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showNewsEvents' %}">Show News Events</a>
+              <a href="{% url 'addNewsEvents' %}">Add News Events</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <!-- ============================================== -->
+    <!--              Side Bar End                    -->
+    <!-- ============================================== -->
+
+    <main class="main-wrap">
+      <header class="main-header navbar">
+        <div class="col-search"></div>
+        <div class="col-nav">
+          <button
+            class="btn btn-icon btn-mobile me-auto"
+            data-trigger="#offcanvas_aside"
+          >
+            <i class="material-icons md-apps"></i>
+          </button>
+          <button
+            class="btn btn-outline-primary btn-sm"
+            style="font-weight: bold"
+          >
+            <a
+              href="{% url 'logout' %}"
+              style="text-decoration: none; color: inherit"
+              >Log out</a
+            >
+          </button>
+        </div>
+      </header>
+      <section class="content-main">{%block content%} {%endblock%}</section>
+      <!-- content-main end// -->
+      <footer class="main-footer font-xs">
+        <div class="row pb-30 pt-15">
+          <div class="col-sm-6">
+            <script>
+              document.write(new Date().getFullYear());
+            </script>
+            &copy; Developed by Brandmyth Digital.
+          </div>
+          <div class="col-sm-6">
+            <div class="text-sm-end">All rights reserved</div>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script src="{% static 'assets/js/vendors/jquery-3.6.0.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendors/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendors/select2.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendors/perfect-scrollbar.js' %}"></script>
+    <script src="{% static 'assets/js/vendors/jquery.fullscreen.min.js' %}"></script>
+    <script src="{% static 'assets/js/vendors/chart.js' %}"></script>
+    <!-- Main Script -->
+    <script
+      src="{% static 'assets/js/main.js' %}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{% static 'assets/js/custom.js' %}"
+      type="text/javascript"
+    ></script>
+    <script
+      src="{% static 'assets/js/custom-chart.js' %}"
+      type="text/javascript"
+    ></script>
+
+    <!-- ================== Vue.js CDN =================== -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <!-- ================================================= -->
+
+    {% block js %} {% endblock %}
+    <script>
+      $(document).ready(function () {
+        setTimeout(() => {
+          $(".cke_browser_webkit").addClass("resize");
+        }, 100);
+
+        $("select").addClass("form-control");
+      });
+    </script>
+  </body>
+</html>
