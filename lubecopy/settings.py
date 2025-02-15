@@ -28,7 +28,7 @@ environ.Env.read_env(env_file=os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = 'django-insecure-b!j+&vqf@8ez1=@$%m0m20yj4(+-4jmv1_*@wa=$f@a@&qdpp-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG', default=False)
+DEBUG = True  # env('DEBUG', default=False)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -88,7 +88,7 @@ CORS_ORIGIN_ALLOW_ALL = True
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-PRODUCTION = env('PRODUCTION', default=False)
+PRODUCTION = False   # env('PRODUCTION', default=False)
 if PRODUCTION:
     DATABASES ={
         "default": {
