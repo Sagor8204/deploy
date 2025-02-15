@@ -1,0 +1,125 @@
+{% extends 'index.html' %}
+{% block title %} Product {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="content-header">
+            {% if activity == 'edit' %}
+            <h2 class="content-title">Update Product</h2>
+            {% else %}
+            <h2 class="content-title">Add Product</h2>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" id="productForm">
+                {% csrf_token %}
+                <div>
+                    <button class="btn btn-md rounded font-sm hover-up" type="submit">Publish</button>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Basic</h4>
+            </div>
+            <div class="card-body">
+                {% if form.brand %}
+                    <div class="mb-4">
+                        <label for="brand" class="form-label">Brand <span class="required">*</span></label>
+                        {{form.brand}}
+                    </div>
+                {% endif %}
+
+                <div class="mb-4">
+                    <label for="name" class="form-label">Name <span class="required">*</span></label>
+                    {{form.name}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="short_description" class="form-label">Short Description <span class="required">*</span></label>
+                    {{form.short_description}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="description" class="form-label">Description <span class="required">*</span></label>
+                    {{form.description}}
+                </div>
+
+                {% if form.viscosity %}
+                    <div class="mb-4">
+                        <label for="viscosity" class="form-label">Viscosity</label>
+                        {{form.viscosity}}
+                    </div>
+                {% endif %}
+                
+                <div class="mb-4">
+                    <label for="industry_specifications" class="form-label">Industry Specifications</label>
+                    {{form.industry_specifications}}
+                </div>
+
+                {% if form.applications %}
+                    <div class="mb-4">
+                        <label for="applications" class="form-label">Applications</label>
+                        {{form.applications}}
+                    </div>
+                {% endif %}
+
+                {% if form.oil_type %}
+                    <div class="mb-4">
+                        <label for="oil_type" class="form-label">Oil Type</label>
+                        {{form.oil_type}}
+                    </div>
+                {% endif %}
+
+                {% if form.product_range %}
+                    <div class="mb-4">
+                        <label for="product_range" class="form-label">Product Range</label>
+                        {{form.product_range}}
+                    </div>
+                {% endif %}
+
+                <div class="mb-4">
+                    <label for="FG_code" class="form-label">FG Code</label>
+                    {{form.FG_code}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="OEM_approvals" class="form-label">OEM Approvals</label>
+                    {{form.OEM_approvals}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="OEM_performance" class="form-label">OEM Performance</label>
+                    {{form.OEM_performance}}
+                </div>
+
+                {% if form.sectors %}
+                    <div class="mb-4">
+                        <label for="sectors" class="form-label">Sectors</label>
+                        {{form.sectors}}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Media <span class="required">*</span></h4>
+            </div>
+            <div class="card-body">
+                <div class="input-upload">
+                    <img src="{% static 'assets/imgs/theme/upload.svg' %}" alt="" />
+                    {{form.image}}
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

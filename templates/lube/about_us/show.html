@@ -1,0 +1,125 @@
+{% extends 'index.html' %} {% block title %} About Us {% endblock %}
+<!-- load static-->
+{% load static %} {% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <section class="content-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content-header">
+          <h2 class="content-title">About Us Details</h2>
+          <div>
+            <button class="btn btn-primary" type="submit">Save changes</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="card">
+              <div class="card-header">
+                <h4>Content</h4>
+              </div>
+              <div class="card-body row">
+                <div class="col-6 mb-3">
+                  <label class="form-label">Hero Title</label>
+                  {{ form.hero_title }}
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label">Director Name</label>
+                  {{ form.director_name }}
+                </div>
+                <div class="col-6 mb-3">
+                  <label class="form-label">Director Designation</label>
+                  {{ form.director_designation }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Mission</label>
+                  {{ form.mission }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Vision</label>
+                  {{ form.vision }}
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label"
+                    >Content <span class="required">*</span>
+                    <br />
+                    <div
+                      id="c_error"
+                      style="color: red; margin-top: 5px; font-weight: 500"
+                    >
+                      {{form.challenges.errors}}
+                    </div>
+                  </label>
+                  {{form.media}} {{form.content}}
+                </div>
+
+                <div class="mb-4">
+                  <label class="form-label"
+                    >Director Description <span class="required">*</span>
+                    <br />
+                    <div
+                      id="c_error"
+                      style="color: red; margin-top: 5px; font-weight: 500"
+                    >
+                      {{form.challenges.errors}}
+                    </div>
+                  </label>
+                  {{form.director_description}}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Hero Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.hero_image}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Content Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.image}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Director Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.director_image}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+{% endblock %}

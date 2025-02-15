@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block title %} About Slider {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="content-header">
+            {% if activity == 'edit' %}
+            <h2 class="content-title">Update About Slider</h2>
+            {% else %}
+            <h2 class="content-title">Add About Slider</h2>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" id="productForm">
+                {% csrf_token %}
+                <div>
+                    <button class="btn btn-md rounded font-sm hover-up" type="submit">Publish</button>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Basic</h4>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <label for="title" class="form-label">Title <span class="required">*</span></label>
+                    {{form.title}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="sub_title" class="form-label">Sub Title <span class="required">*</span></label>
+                    {{form.sub_title}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="description" class="form-label">Description <span class="required">*</span></label>
+                    {{form.description}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Media <span class="required">*</span></h4>
+            </div>
+            <div class="card-body">
+                <div class="input-upload">
+                    <img src="{% static 'assets/imgs/theme/upload.svg' %}" alt="" />
+                    {{form.image}}
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

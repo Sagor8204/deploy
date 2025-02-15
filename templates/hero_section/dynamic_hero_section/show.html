@@ -1,0 +1,151 @@
+{% extends 'index.html' %}
+<!--  title  -->
+{% block title %} {{ product_type|title }} Hero Sections {% endblock %}
+<!-- endblock -->
+{% load static %} {% block content %}
+
+<div class="content-header">
+  <h2 class="content-title card-title">
+    {{ product_type|title }} Hero Sections
+  </h2>
+  <div>
+    <a
+      href="{% url 'hero_section_create' product_type=product_type %}"
+      class="btn btn-primary"
+    >
+      <i class="text-muted material-icons md-post_add"></i>Add New
+    </a>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Slider 1</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th class="text-center">Caption</th>
+                <th class="text-center">Media</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items.slider1 %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td class="text-center">{{item.caption}}</td>
+                {% if item.image %}
+                <td class="text-center">
+                  <a
+                    href="{{ item.image.url }}"
+                    class="btn btn-md rounded font-sm"
+                  >
+                    View
+                  </a>
+                </td>
+                {% else %}
+                <td class="text-muted text-center"><b>N/A</b></td>
+                {% endif %}
+                <td class="text-end">
+                  <div class="dropdown">
+                    <a
+                      href="#"
+                      data-bs-toggle="dropdown"
+                      class="btn btn-light rounded btn-sm font-sm"
+                    >
+                      <i class="material-icons md-more_horiz"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'hero_section_update' product_type=product_type id=item.id %}"
+                        >Edit info</a
+                      >
+                      <a
+                        href="{% url 'hero_section_delete' product_type=product_type id=item.id %}"
+                        class="dropdown-item text-danger"
+                        >Delete</a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-6">
+    <div class="card">
+      <div class="card-header">
+        <h5>Slider 2</h5>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th class="text-center">Caption</th>
+                <th class="text-center">Media</th>
+                <th class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in items.slider2 %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td class="text-center">{{item.caption}}</td>
+                {% if item.image %}
+                <td class="text-center">
+                  <a
+                    href="{{ item.image.url }}"
+                    class="btn btn-md rounded font-sm"
+                  >
+                    View
+                  </a>
+                </td>
+                {% else %}
+                <td class="text-muted text-center"><b>N/A</b></td>
+                {% endif %}
+                <td class="text-end">
+                  <div class="dropdown">
+                    <a
+                      href="#"
+                      data-bs-toggle="dropdown"
+                      class="btn btn-light rounded btn-sm font-sm"
+                    >
+                      <i class="material-icons md-more_horiz"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                      <a
+                        class="dropdown-item"
+                        href="{% url 'hero_section_update' product_type=product_type id=item.id %}"
+                        >Edit info</a
+                      >
+                      <a
+                        href="{% url 'hero_section_delete' product_type=product_type id=item.id %}"
+                        class="dropdown-item text-danger"
+                        >Delete</a
+                      >
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

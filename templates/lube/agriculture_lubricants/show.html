@@ -1,0 +1,153 @@
+{% extends 'index.html' %}
+<!--  title  -->
+{% block title %} Agriculture Lubricants {% endblock%}
+<!-- load static-->
+{% load static %} {% block content %}
+
+<div class="row">
+  <div class="col-lg-12">
+    <section class="content-body">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="content-header">
+          <h2 class="content-title">Agriculture Lubricants Details</h2>
+          <div>
+            <button class="btn btn-primary" type="submit">Save changes</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9">
+            <div class="card">
+              <div class="card-header">
+                <h4>Content</h4>
+              </div>
+              <div class="card-body row">
+                <div class="col-12 mb-3">
+                  <label class="form-label">Hero Title</label>
+                  {{ form.hero_title }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Title</label>
+                  {{ form.title }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Description</label>
+                  {{ form.description }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Diagnostics</label>
+                  {{ form.diagnostics }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Fluid-i</label>
+                  {{ form.fluid_i }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Academy</label>
+                  {{ form.academy }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Distribute Title</label>
+                  {{ form.distribute_title }}
+                </div>
+                <div class="col-12 mb-3">
+                  <label class="form-label">Distribute Description</label>
+                  {{ form.distribute_description }}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Hero Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.hero_image}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Content Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.image}}
+                </div>
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Diagnostics Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.diagnostics_image}}
+                </div>
+              </div>
+            </div>
+
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Fluid-i Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.fluid_i_image}}
+                </div>
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Academy Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.academy_image}}
+                </div>
+              </div>
+            </div>
+            <div class="card mb-4">
+              <div class="card-header">
+                <h4>Distribute Image <span class="required">*</span></h4>
+              </div>
+              <div class="card-body">
+                <div class="input-upload">
+                  <img
+                    src="{% static 'assets/imgs/theme/upload.svg' %}"
+                    alt=""
+                  />
+                  {{form.distribute_image}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+{% endblock %}

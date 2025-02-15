@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+{% block title %} Year {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="content-header">
+            {% if activity == 'edit' %}
+            <h2 class="content-title">Update Year</h2>
+            {% else %}
+            <h2 class="content-title">Add Year</h2>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" id="productForm">
+                {% csrf_token %}
+                <div>
+                    <button class="btn btn-md rounded font-sm hover-up" type="submit">Publish</button>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Basic</h4>
+            </div>
+            <div class="card-body">
+                {% if form.category %}
+                    <div class="mb-4">
+                        <label for="category" class="form-label">Category <span class="required">*</span></label>
+                        {{form.category}}
+                    </div>
+                {% endif %}
+
+                <div class="mb-4">
+                    <label for="year" class="form-label">Year <span class="required">*</span></label>
+                    {{form.year}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        
+    </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

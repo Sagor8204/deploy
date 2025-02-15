@@ -1,0 +1,62 @@
+{% extends 'index.html' %} {% block title %} Hero Section {% endblock %} {% load
+static %} {% block content %}
+
+<div>
+  <!-- Home Section -->
+  <div class="card mb-4">
+    <div class="card-header">
+      <h5>Hero Sections</h5>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th class="text-center">Media</th>
+              <th class="text-end">Add/Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for section in sections %}
+            <tr>
+              <td>{{ section.name }}</td>
+              <td class="text-center">
+                {% if section.media %}
+                <a href="{{ section.media }}" class="btn btn-md rounded font-sm"
+                  >View</a
+                >
+                {% elif section.view_url %}
+                <a
+                  href="{{ section.view_url }}"
+                  class="btn btn-md rounded font-sm"
+                  >View</a
+                >
+                {% else %}
+                <span class="text-muted">No Media</span>
+                {% endif %}
+              </td>
+              <td class="text-end">
+                {% if section.update_url %}
+                <a
+                  href="{{ section.update_url }}"
+                  class="btn btn-md rounded font-sm"
+                  >Update</a
+                >
+                {% else %}
+                <a
+                  href="{{ section.add_url }}"
+                  class="btn btn-md rounded font-sm"
+                  >Add</a
+                >
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'apps.lube',
+    'apps.brand',
+    'apps.product',
     'core',
 ]
 

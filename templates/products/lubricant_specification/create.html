@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% block title %} Specification {% endblock %}
+{% load static %}
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="content-header">
+            {% if activity == 'edit' %}
+            <h2 class="content-title">Update Specification</h2>
+            {% else %}
+            <h2 class="content-title">Add Specification</h2>
+            {% endif %}
+            <form method="post" enctype="multipart/form-data" id="productForm">
+                {% csrf_token %}
+                <div>
+                    <button class="btn btn-md rounded font-sm hover-up" type="submit">Publish</button>
+                </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h4>Basic</h4>
+            </div>
+            <div class="card-body">
+                {% if form.engine_capacity %}
+                    <div class="mb-4">
+                        <label for="engine_capacity" class="form-label">Engine Capacity <span class="required">*</span></label>
+                        {{form.engine_capacity}}
+                    </div>
+                {% endif %}
+
+                <div class="mb-4">
+                    <label for="model_name" class="form-label">Model Name <span class="required">*</span></label>
+                    {{form.model_name}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="fuel_type" class="form-label">Fuel Type <span class="required">*</span></label>
+                    {{form.fuel_type}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="power" class="form-label">Power <span class="required">*</span></label>
+                    {{form.power}}
+                </div>
+
+                <div class="mb-4">
+                    <label for="production_year" class="form-label">Production Year <span class="required">*</span></label>
+                    {{form.production_year}}
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-lg-3">
+        
+    </div>
+    </form>
+</div>
+</div>
+</div>
+
+{% endblock %}

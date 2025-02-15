@@ -62,8 +62,9 @@
               font-weight: bold;
               font-family: Arial, sans-serif;
             "
-            >United Lube Oil LTD
-          </span>
+            >United Lube Oil LTD </span
+       
+          >
         </a>
         <div>
           <button class="btn btn-icon btn-aside-minimize">
@@ -80,6 +81,23 @@
             </a>
           </li>
 
+          <!--- - - - - - - - - - - - - -  - - Home Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Home</strong
+          >
+          <hr />
+
+          <!--- Home content -->
+
+          <li
+            class="{% if active == 'home_content' %}active{% endif %} menu-item"
+          >
+            <a class="menu-link" href="{% url 'homeContentData' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Home Content</span>
+            </a>
+          </li>
+
           <!--- News Events -->
 
           <li
@@ -93,6 +111,430 @@
               <a href="{% url 'showNewsEvents' %}">Show News Events</a>
               <a href="{% url 'addNewsEvents' %}">Add News Events</a>
             </div>
+          </li>
+
+          <!--- Business Solutions -->
+
+          <li
+            class="{% if active == 'business_solutions' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Business Solutions</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showBusinessSolutions' %}"
+                >Show Business Solutions</a
+              >
+              <a href="{% url 'addBusinessSolutions' %}"
+                >Add Business Solutions</a
+              >
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Brand Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Brand</strong
+          >
+          <hr />
+
+          <!--- Brand -->
+
+          <li
+            class="{% if active == 'brand' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Brand</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showBrand' %}">Show Brand</a>
+              <a href="{% url 'addBrand' %}">Add Brand</a>
+            </div>
+          </li>
+
+          <!--- Brand Details -->
+
+          <li
+            class="{% if active == 'brand_details' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Brand Details</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showBrandDetails' %}">Show Brand Details</a>
+              <a href="{% url 'addBrandDetails' %}">Add Brand Details</a>
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - About Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >About</strong
+          >
+          <hr />
+
+          <!--- About -->
+
+          <li class="{% if active == 'about' %}active{% endif %} menu-item">
+            <a class="menu-link" href="{% url 'aboutData' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">About Us</span>
+            </a>
+          </li>
+
+          <!--- Our Experts -->
+
+          <li
+            class="{% if active == 'our_experts' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Our Experts</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showOurExperts' %}">Show Our Experts</a>
+              <a href="{% url 'addOurExperts' %}">Add Our Expert</a>
+            </div>
+          </li>
+
+          <!--- About Slider -->
+
+          <li
+            class="{% if active == 'about_slider' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">About Slider</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showAboutSlider' %}">Show About Slider</a>
+              <a href="{% url 'addAboutSlider' %}">Add About Slider</a>
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Agriculture Lubricants Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Agriculture Lubricants</strong
+          >
+          <hr />
+
+          <!--- Agriculture Lubricants -->
+
+          <li
+            class="{% if active == 'agriculture_lubricants' %}active{% endif %} menu-item"
+          >
+            <a class="menu-link" href="{% url 'agricultureLubricantsData' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Agriculture Lubricants</span>
+            </a>
+          </li>
+
+          <!--- Agriculture Lubricants Slider -->
+
+          <li
+            class="{% if active == 'agriculture_lubricants_slider' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Agriculture Lubricants Slider</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showAgricultureLubricantsSlider' %}"
+                >Show Slider</a
+              >
+              <a href="{% url 'addAgricultureLubricantsSlider' %}"
+                >Add Slider</a
+              >
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Distribution Point Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Distribution Point</strong
+          >
+          <hr />
+
+          <!--- Division -->
+
+          <li
+            class="{% if active == 'division' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Division</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showDivision' %}">Show Division</a>
+              <a href="{% url 'addDivision' %}">Add Division</a>
+            </div>
+          </li>
+
+          <!--- District -->
+
+          <li
+            class="{% if active == 'district' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">District</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showDistrict' %}">Show District</a>
+              <a href="{% url 'addDistrict' %}">Add District</a>
+            </div>
+          </li>
+
+          <!--- DistributionPoint -->
+
+          <li
+            class="{% if active == 'distribution_point' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">DistributionPoint</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showDistributionPoint' %}"
+                >Show DistributionPoint</a
+              >
+              <a href="{% url 'addDistributionPoint' %}"
+                >Add DistributionPoint</a
+              >
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Product Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Product</strong
+          >
+          <hr />
+
+          <!--- Product -->
+
+          <li
+            class="{% if active == 'product' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Product</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showProduct' %}">Show Product</a>
+              <a href="{% url 'addProduct' %}">Add Product</a>
+            </div>
+          </li>
+
+          <!--- Oil Type -->
+
+          <li
+            class="{% if active == 'oil_type' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Oil Type</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showOilType' %}">Show Oil Type</a>
+              <a href="{% url 'addOilType' %}">Add Oil Type</a>
+            </div>
+          </li>
+
+          <!--- Product Range -->
+
+          <li
+            class="{% if active == 'product_range' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Product Range</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showProductRange' %}">Show Product Range</a>
+              <a href="{% url 'addProductRange' %}">Add Product Range</a>
+            </div>
+          </li>
+
+          <!--- Viscosity -->
+
+          <li
+            class="{% if active == 'viscosity' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Viscosity</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showViscosity' %}">Show Viscosity</a>
+              <a href="{% url 'addViscosity' %}">Add Viscosity</a>
+            </div>
+          </li>
+
+          <!--- Applications -->
+
+          <li
+            class="{% if active == 'applications' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Applications</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showApplications' %}">Show Applications</a>
+              <a href="{% url 'addApplications' %}">Add Applications</a>
+            </div>
+          </li>
+
+          <!--- Sectors -->
+
+          <li
+            class="{% if active == 'sectors' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Sectors</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showSectors' %}">Show Sectors</a>
+              <a href="{% url 'addSectors' %}">Add Sectors</a>
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Lubricant Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Lubricant</strong
+          >
+          <hr />
+
+          <!--- Lubricant Category -->
+
+          <li
+            class="{% if active == 'lubricant_category' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Category</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showLubricantCategory' %}">Show Category</a>
+              <a href="{% url 'addLubricantCategory' %}">Add Category</a>
+            </div>
+          </li>
+
+          <!--- Lubricant Year -->
+
+          <li
+            class="{% if active == 'lubricant_year' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Year</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showLubricantYear' %}">Show Year</a>
+              <a href="{% url 'addLubricantYear' %}">Add Year</a>
+            </div>
+          </li>
+
+          <!--- Lubricant Engine Capacity -->
+
+          <li
+            class="{% if active == 'lubricant_engine_capacity' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Engine Capacity</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showLubricantEngineCapacity' %}"
+                >Show Engine Capacity</a
+              >
+              <a href="{% url 'addLubricantEngineCapacity' %}"
+                >Add Engine Capacity</a
+              >
+            </div>
+          </li>
+
+          <!--- Lubricant Specification -->
+
+          <li
+            class="{% if active == 'lubricant_specification' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Engine Specification</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showLubricantSpecification' %}"
+                >Show Engine Specification</a
+              >
+              <a href="{% url 'addLubricantSpecification' %}"
+                >Add Engine Specification</a
+              >
+            </div>
+          </li>
+
+          <!--- - - - - - - - - - - - - -  - - Common Section - - - - - - - - - - - - -  - - -->
+          <strong style="display: block; text-align: center; font-weight: 600"
+            >Common</strong
+          >
+          <hr />
+
+          <!--- contactDetails -->
+
+          <li
+            class="{% if active == 'contact_details' %}active{% endif %} menu-item"
+          >
+            <a class="menu-link" href="{% url 'contactDetails' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Contact Details</span>
+            </a>
+          </li>
+
+          <!--- Getintouch -->
+
+          <li
+            class="{% if active == 'getintouch' %}active{% endif %} menu-item"
+          >
+            <a class="menu-link" href="{% url 'showGetInTouch' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Getintouch</span>
+            </a>
+          </li>
+
+          <!--- Query -->
+
+          <li class="{% if active == 'query' %}active{% endif %} menu-item">
+            <a class="menu-link" href="{% url 'showQuery' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Query</span>
+            </a>
+          </li>
+
+          <!--- Brochure -->
+
+          <li
+            class="{% if active == 'document' %}active{% endif %} menu-item has-submenu"
+          >
+            <a class="menu-link" href="#">
+              <i class="icon material-icons md-shopping_bag"></i>
+              <span class="text">Brochure</span>
+            </a>
+            <div class="submenu">
+              <a href="{% url 'showDocument' %}">Show Brochure</a>
+              <a href="{% url 'addDocument' %}">Add Brochure</a>
+            </div>
+          </li>
+
+          <!--- Company Details -->
+
+          <li
+            class="{% if active == 'company_details' %}active{% endif %} menu-item"
+          >
+            <a class="menu-link" href="{% url 'companyDetailsData' %}">
+              <i class="icon material-icons md-home"></i>
+              <span class="text">Company Details</span>
+            </a>
           </li>
         </ul>
       </nav>

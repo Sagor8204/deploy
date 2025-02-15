@@ -1,0 +1,119 @@
+{% extends 'index.html' %}
+<!--  title  -->
+{% block title %} MDF Add Hero Sections {% endblock %}
+<!-- endblock -->
+{% load static %} {% block content %}
+
+<div>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="content-header">
+      <div>
+        <h2 class="content-title card-title">
+          {% if activity == 'edit' %} MDF Update Hero Section {% else %} MDF
+          Create Hero Section {% endif %}
+        </h2>
+      </div>
+      <div>
+        <button class="btn btn-primary">
+          <i class="text-muted material-icons md-post_add"></i>
+          {% if activity == 'edit' %} Update {% else %} Save {% endif %}
+        </button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div id="new-images-container" class="row">
+        <div class="col-4">
+          <div class="new-image card mb-4">
+            <div class="card-header">
+              <h4>Media <span class="required">*</span></h4>
+            </div>
+            <div class="card-body">
+              <label for="caption_${newImageCounter}">Caption:</label>
+              {% if activity == 'edit' %}
+              <div class="mb-4">{{ form.caption }}</div>
+              {% else %}
+              <input
+                type="text"
+                name="captions[]"
+                id="caption_${newImageCounter}"
+                class="form-control mb-4"
+                required
+              />
+              {% endif %}
+              <label for="image_${newImageCounter}">Upload Main Image:</label>
+              {% if activity == 'edit' %}
+              <div class="mb-4">{{ form.image }}</div>
+              {% else %}
+              <input
+                type="file"
+                name="images[]"
+                id="image_${newImageCounter}"
+                class="form-control mb-4"
+                required
+              />
+              {% endif %}
+              <label for="image_${newImageCounter}">Upload Thumbnail:</label>
+              {% if activity == 'edit' %}
+              <div class="mb-4">{{ form.thumbnail }}</div>
+              {% else %}
+              <input
+                type="file"
+                name="thumbnails[]"
+                id="thumbnail_${newImageCounter}"
+                class="form-control mb-4"
+                required
+              />
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {% if not activity == 'edit' %}
+      <div class="col-4">
+        <button
+          type="button"
+          id="addNewImageButton"
+          onclick="addNewImageForm()"
+          class="btn btn-primary mb-4 mt-4"
+        >
+          Add New Image
+        </button>
+      </div>
+      {% endif %}
+    </div>
+  </form>
+</div>
+
+<!--  This script for Add new Image Form for MDF Hero section  -->
+<script>
+  let newImageCounter = 1;
+
+  function addNewImageForm() {
+    const container = document.getElementById("new-images-container");
+
+    newImageCounter++;
+
+    const newImageForm = `
+            <div class="col-4">
+              <div class="new-image card mb-4">
+                  <div class="card-header">
+                      <h4>Media <span class="required">*</span></h4>
+                  </div>
+                  <div class="card-body">
+                      <label for="caption_${newImageCounter}">Caption:</label>
+                      <input type="text" name="captions[]" id="caption_${newImageCounter}" class="form-control mb-4" required />
+                      <label for="image_${newImageCounter}">Upload Main Image:</label>
+                      <input type="file" name="images[]" id="image_${newImageCounter}" class="form-control mb-4" required />
+                      <label for="image_${newImageCounter}">Upload Thumbnail:</label>
+                      <input type="file" name="thumbnails[]" id="thumbnail_${newImageCounter}" class="form-control mb-4" required />
+                  </div>
+              </div>
+            </div>`;
+    container.insertAdjacentHTML("beforeend", newImageForm);
+  }
+</script>
+
+{% endblock %}

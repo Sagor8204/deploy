@@ -1,0 +1,114 @@
+{% extends 'index.html' %}
+<!--  title  -->
+{% block title %} {{ product_type|title }} Add Hero Sections {% endblock %}
+<!--  load static  -->
+{% load static %} {% block content %}
+
+<div>
+  <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="content-header">
+    <div>
+      <h2 class="content-title card-title">
+        {% if activity == 'edit' %}
+        {{ product_type|title }} Update Hero Section
+        {% else %}
+        {{ product_type|title }} Create Hero Section
+        {% endif %}
+      </h2>
+    </div>
+    <div>
+      <button class="btn btn-primary">
+        <i class="text-muted material-icons md-post_add"></i>
+        {% if activity == 'edit' %}
+        Update
+        {% else %}
+        Save
+        {% endif %}
+      </button>
+    </div>
+  </div>
+
+  <div class="row">
+      <div id="new-images-container" class="row">
+        <div class="col-4">
+            <div class="new-image card mb-4">
+                  <div class="card-header">
+                      <h4>Media <span class="required">*</span></h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="mb-4">
+                        <label for="slider">Slider Select:</label>
+                        {{form.slider}}
+                      </div>
+                      <label for="caption_1">Caption:</label>
+                      {% if activity == 'edit' %}
+                        <div class="mb-4">
+                          {{ form.caption }}
+                        </div>
+                      {% else %}
+                        <input type="text" name="captions[]" id="caption_1" class="form-control mb-4" required />
+                      {% endif %}
+                      <label for="image_1">Upload Image:</label>
+                      {% if activity == 'edit' %}
+                        <div class="mb-4">
+                          {{ form.image }}
+                        </div>
+                      {% else %}
+                        <input type="file" name="images[]" id="image_1" class="form-control mb-4" required />
+                      {% endif %}
+                  </div>
+              </div>
+            </div>
+        </div>
+
+      {% if not activity == 'edit' %}
+        <div class="col-4">
+          <button
+            type="button"
+            id="addNewImageButton"
+            onclick="addNewImageForm()"
+            class="btn btn-primary mb-4 mt-4"
+          >
+            Add New Image
+          </button>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</form>
+</div>
+
+
+<!--  This script for Add new Image Form for MDF Hero section  -->
+<script>
+  let newImageCounter = 1;
+
+  function addNewImageForm() {
+    const container = document.getElementById("new-images-container");
+
+    newImageCounter++;
+
+    const newImageForm = `
+            <div class="col-4">
+              <div class="new-image card mb-4">
+                  <div class="card-header">
+                      <h4>Media <span class="required">*</span></h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="mb-4">
+                        <label for="slider">Slider Select:</label>
+                        {{form.slider}}
+                      </div>
+                      <label for="caption_${newImageCounter}">Caption:</label>
+                      <input type="text" name="captions[]" id="caption_${newImageCounter}" class="form-control mb-4" required />
+                      <label for="image_${newImageCounter}">Upload Main Image:</label>
+                      <input type="file" name="images[]" id="image_${newImageCounter}" class="form-control mb-4" required />
+                  </div>
+              </div>
+            </div>`;
+    container.insertAdjacentHTML("beforeend", newImageForm);
+  }
+</script>
+
+{% endblock %}

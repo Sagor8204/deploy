@@ -1,0 +1,27 @@
+{% extends 'index.html' %} {% block title %} Hero Section {% endblock %} {% load
+static %} {% block content %}
+
+<div class="row">
+  <div class="col-4">
+    <div class="card mb-4">
+      <div class="card-header">
+        <h4>Image <span class="required">*</span></h4>
+      </div>
+      <div class="card-body">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="input-upload mb-4 mt-4">
+            <label for="id_image">Upload New Image:</label>
+            {{ form.as_p }}
+          </div>
+
+          <div>
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

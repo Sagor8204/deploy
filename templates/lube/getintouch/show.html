@@ -1,0 +1,109 @@
+{% extends 'index.html' %} {% block title %} Get In Touch {% endblock %} {% load
+static %} {% block content %}
+<div class="content-header">
+  <div>
+    <h2 class="content-title card-title">Get In Touch</h2>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <div class="input-group">
+      <input
+        list="search_terms"
+        type="text"
+        name="search"
+        class="form-control bg-white"
+        placeholder="Search"
+      />
+      <button class="btn btn-light bg" type="submit">
+        <i class="material-icons md-search"></i>
+      </button>
+    </div>
+  </form>
+</div>
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Date</th>
+            <th scope="col">Cover Letter</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %} {% if item.is_read %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{item.first_name}}</td>
+            <td>{{item.last_name}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.phone_number}}</td>
+            <td>{{item.created_at}}</td>
+            {% else %}
+          </tr>
+
+          <tr style="background-color: LightGray !important">
+            <td style="font-weight: bold">{{forloop.counter}}</td>
+            <td style="font-weight: bold">{{item.first_name}}</td>
+            <td style="font-weight: bold">{{item.last_name}}</td>
+            <td style="font-weight: bold">{{item.email}}</td>
+            <td style="font-weight: bold">{{item.phone_number}}</td>
+            <td>{{item.created_at}}</td>
+            {%endif%}
+            <input
+              id="m{{item.id}}"
+              type="hidden"
+              value="{{item.cover_letter}}"
+            />
+            <input
+              id="{{item.id}}"
+              type="hidden"
+              value="{% url 'markRead' id=item.id %}"
+            />
+            <td>
+              <button
+                onclick="showMsg({{item.id}});"
+                type="button"
+                class="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+              >
+                Read
+              </button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cover Letter</h5>
+      </div>
+      <div class="modal-body">
+        <p id="msgBody"></p>
+      </div>
+      <div class="modal-footer">
+        <a id="queryBtn" class="btn btn-secondary">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'index.html' %} {% block title %}Product Range{% endblock %}
+<!-- load static -->
+{% load static %} {% block content %}
+<div class="content-header">
+  <div>
+    <h2 class="content-title card-title">Product Range</h2>
+  </div>
+  <div>
+    <a href="{% url 'addProductRange' %}" class="btn btn-primary">
+      <i class="text-muted material-icons md-post_add"></i>Add New
+    </a>
+  </div>
+</div>
+
+<div class="card mb-4">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#ID</th>
+            <th scope="col">Title</th>
+            <th scope="col" class="text-end">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in items %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ item.title }}</td>
+            <td class="text-end">
+              <div class="dropdown">
+                <a
+                  href="#"
+                  data-bs-toggle="dropdown"
+                  class="btn btn-light rounded btn-sm font-sm"
+                >
+                  <i class="material-icons md-more_horiz"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a
+                    class="dropdown-item"
+                    href="{% url 'editProductRange' id=item.id %}"
+                    >Edit info</a
+                  >
+                  <a
+                    class="dropdown-item text-danger"
+                    href="{% url 'deleteProductRange' id=item.id %}"
+                    >Delete</a
+                  >
+                </div>
+              </div>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
